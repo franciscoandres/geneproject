@@ -5,6 +5,7 @@ require 'Sanitize.php';
 /**
 * User Model
 */
+
 class User
 {
 	
@@ -16,7 +17,7 @@ class User
 		$this->name = Sanitize::html($name);
 	}
 
-	public function getName() {
+	public function getName(): string {
 		return $this->name;
 	}
 
@@ -24,7 +25,7 @@ class User
 		$this->email = Sanitize::html($email);
 	}
 
-	public function getEmail() {
+	public function getEmail(): string {
 		return $this->email;
 	}
 

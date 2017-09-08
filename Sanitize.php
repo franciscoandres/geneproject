@@ -3,6 +3,7 @@
 /**
 *  Sanitize
 */
+
 class Sanitize
 {
 
