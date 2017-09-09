@@ -11,4 +11,8 @@ class Sanitize
 		return htmlspecialchars($string);
 	}
 
+	public static function trim($string) {
+		return trim($string);
+	}
+
 }

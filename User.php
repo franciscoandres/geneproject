@@ -1,6 +1,7 @@
 <?php
 
 require 'Sanitize.php';
+require 'Connection.php';
 
 /**
 * User Model
@@ -37,10 +38,16 @@ class User
 		var_dump($this->name, $this->email, $this->hash);
 	}
 
+	public function save() {
+		$obj = new Connection();
+		$obj->execute("INSERT INTO users(name, email, hash) VALUES('$this->name', '$this->email', '$this->hash')");
+		$obj->close();
+	}
+
 }
 
 $user = new User();
 $user->setName("Frank");
 $user->setEmail("frandresgo@gmail.com");
 $user->setPassword("secretpassword123456789");
-$user->dump();
+$user->save();
