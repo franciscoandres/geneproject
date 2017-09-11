@@ -1,8 +1,5 @@
 <?php
 
-require 'Sanitize.php';
-require 'Connection.php';
-
 /**
 * User Model
 */
@@ -14,7 +11,7 @@ class User
 	private $email;
 	private $hash;
 
-	public function setName(string $name) {
+	public function setName($name) {
 		$this->name = Sanitize::html($name);
 	}
 
@@ -22,7 +19,7 @@ class User
 		return $this->name;
 	}
 
-	public function setEmail(string $email) {
+	public function setEmail($email) {
 		$this->email = Sanitize::html($email);
 	}
 
@@ -30,12 +27,8 @@ class User
 		return $this->email;
 	}
 
-	public function setPassword(string $password) {
+	public function setPassword($password) {
 		$this->hash = password_hash($password, PASSWORD_DEFAULT);
-	}
-
-	public function dump() {
-		var_dump($this->name, $this->email, $this->hash);
 	}
 
 	public function save() {
@@ -45,9 +38,3 @@ class User
 	}
 
 }
-
-$user = new User();
-$user->setName("Frank");
-$user->setEmail("frandresgo@gmail.com");
-$user->setPassword("secretpassword123456789");
-$user->save();
